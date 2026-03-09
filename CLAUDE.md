@@ -2,7 +2,8 @@
 
 - **Language**: TypeScript
 - **Package Manager**: pnpm
-- **Add-ons**: prettier, eslint, vitest, playwright, tailwindcss, sveltekit-adapter, devtools-json, better-auth, mcp, drizzle
+- **Add-ons**: prettier, eslint, vitest, playwright, tailwindcss, daisyui, sveltekit-adapter, devtools-json, better-auth, mcp, drizzle
+- **UI Library**: daisyUI (see `.claude/skills/daisyui.md` for component reference and usage patterns)
 
 ---
 
