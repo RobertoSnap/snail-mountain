@@ -8,7 +8,7 @@ daisyUI is installed as a Tailwind CSS v4 plugin in `src/routes/layout.css`:
 
 ```css
 @import 'tailwindcss';
-@plugin "daisyui";
+@plugin 'daisyui';
 ```
 
 ## Themes
@@ -16,8 +16,10 @@ daisyUI is installed as a Tailwind CSS v4 plugin in `src/routes/layout.css`:
 Configure themes in CSS:
 
 ```css
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+@plugin 'daisyui' {
+	themes:
+		light --default,
+		dark --prefersdark;
 }
 ```
 
@@ -32,10 +34,10 @@ Themes can be nested — any element can have its own `data-theme`.
 Custom themes:
 
 ```css
-@plugin "daisyui/theme" {
-  name: "mytheme";
-  --color-primary: oklch(55% 0.3 240);
-  --color-secondary: oklch(70% 0.25 200);
+@plugin 'daisyui/theme' {
+	name: 'mytheme';
+	--color-primary: oklch(55% 0.3 240);
+	--color-secondary: oklch(70% 0.25 200);
 }
 ```
 
@@ -60,6 +62,7 @@ Usage: `bg-primary`, `text-primary-content`, `border-secondary`, `text-base-cont
 ## Components
 
 ### Actions
+
 - **Button**: `<button class="btn">`, variants: `btn-primary`, `btn-secondary`, `btn-accent`, `btn-ghost`, `btn-link`, `btn-outline`, sizes: `btn-lg`, `btn-sm`, `btn-xs`
 - **Dropdown**: `<div class="dropdown">` with `<ul class="dropdown-content menu">`
 - **Modal**: `<dialog class="modal">` with `<div class="modal-box">`, use `.showModal()` to open
@@ -67,6 +70,7 @@ Usage: `bg-primary`, `text-primary-content`, `border-secondary`, `text-base-cont
 - **Theme Controller**: checkbox/radio to switch themes
 
 ### Data Display
+
 - **Accordion**: `<div class="collapse">` with `collapse-title` and `collapse-content`
 - **Avatar**: `<div class="avatar">` with `<img>` inside
 - **Badge**: `<span class="badge">`, variants: `badge-primary`, `badge-outline`, etc.
@@ -82,6 +86,7 @@ Usage: `bg-primary`, `text-primary-content`, `border-secondary`, `text-base-cont
 - **Timeline**: `<ul class="timeline">` with `timeline-start`, `timeline-middle`, `timeline-end`
 
 ### Navigation
+
 - **Breadcrumbs**: `<div class="breadcrumbs">` with `<ul>`
 - **Dock**: `<div class="dock">` for bottom navigation
 - **Link**: `<a class="link">`, variants: `link-primary`, `link-hover`
@@ -92,6 +97,7 @@ Usage: `bg-primary`, `text-primary-content`, `border-secondary`, `text-base-cont
 - **Tabs**: `<div role="tablist" class="tabs tabs-bordered">`
 
 ### Feedback
+
 - **Alert**: `<div role="alert" class="alert">`, variants: `alert-info`, `alert-success`, `alert-warning`, `alert-error`
 - **Loading**: `<span class="loading loading-spinner">`, types: `loading-dots`, `loading-ring`, `loading-ball`, `loading-bars`, `loading-infinity`
 - **Progress**: `<progress class="progress" value="70" max="100">`
@@ -101,6 +107,7 @@ Usage: `bg-primary`, `text-primary-content`, `border-secondary`, `text-base-cont
 - **Tooltip**: `<div class="tooltip" data-tip="hello">`
 
 ### Data Input
+
 - **Calendar**: `<div class="calendar">`
 - **Checkbox**: `<input type="checkbox" class="checkbox">`, variants: `checkbox-primary`, etc.
 - **Fieldset**: `<fieldset class="fieldset">` with `fieldset-legend`
@@ -117,6 +124,7 @@ Usage: `bg-primary`, `text-primary-content`, `border-secondary`, `text-base-cont
 - **Validator**: `<div class="validator">` for form validation display
 
 ### Layout
+
 - **Divider**: `<div class="divider">` (horizontal) or `divider-horizontal` (vertical)
 - **Drawer**: `<div class="drawer">` with `drawer-toggle`, `drawer-content`, `drawer-side`
 - **Footer**: `<footer class="footer">`
@@ -127,6 +135,7 @@ Usage: `bg-primary`, `text-primary-content`, `border-secondary`, `text-base-cont
 - **Stack**: `<div class="stack">` for stacking elements
 
 ### Mockup
+
 - **Browser**: `<div class="mockup-browser">`
 - **Code**: `<div class="mockup-code">`
 - **Phone**: `<div class="mockup-phone">`

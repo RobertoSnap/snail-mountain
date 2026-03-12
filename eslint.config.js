@@ -35,5 +35,10 @@ export default defineConfig(
 				svelteConfig
 			}
 		}
+	},
+	{
+		// Workaround: eslint-plugin-svelte crashes on form action attributes (action="?/...")
+		files: ['src/routes/login/+page.svelte'],
+		rules: { 'svelte/no-navigation-without-resolve': 'off' }
 	}
 );
