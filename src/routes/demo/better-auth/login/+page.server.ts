@@ -3,6 +3,18 @@ import type { Actions } from './$types';
 import type { PageServerLoad } from './$types';
 import { auth } from '$lib/server/auth';
 import { APIError } from 'better-auth/api';
+import { z } from 'zod';
+
+const signInSchema = z.object({
+	email: z.string().email(),
+	password: z.string().min(1)
+});
+
+const signUpSchema = z.object({
+	email: z.string().email(),
+	password: z.string().min(6),
+	name: z.string().min(1)
+});
 
 export const load: PageServerLoad = async (event) => {
 	if (event.locals.user) {
@@ -14,15 +26,23 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
 	signInEmail: async (event) => {
 		const formData = await event.request.formData();
-		const email = formData.get('email')?.toString() ?? '';
-		const password = formData.get('password')?.toString() ?? '';
+		const raw = {
+			email: formData.get('email')?.toString() ?? '',
+			password: formData.get('password')?.toString() ?? ''
+		};
+
+		const parsed = signInSchema.safeParse(raw);
+		if (!parsed.success) {
+			return fail(400, { message: parsed.error.issues[0].message });
+		}
+
+		const { email, password } = parsed.data;
 
 		try {
 			await auth.api.signInEmail({
 				body: {
 					email,
-					password,
-					callbackURL: '/auth/verification-success'
+					password
 				}
 			});
 		} catch (error) {
@@ -36,17 +56,25 @@ export const actions: Actions = {
 	},
 	signUpEmail: async (event) => {
 		const formData = await event.request.formData();
-		const email = formData.get('email')?.toString() ?? '';
-		const password = formData.get('password')?.toString() ?? '';
-		const name = formData.get('name')?.toString() ?? '';
+		const raw = {
+			email: formData.get('email')?.toString() ?? '',
+			password: formData.get('password')?.toString() ?? '',
+			name: formData.get('name')?.toString() ?? ''
+		};
+
+		const parsed = signUpSchema.safeParse(raw);
+		if (!parsed.success) {
+			return fail(400, { message: parsed.error.issues[0].message });
+		}
+
+		const { email, password, name } = parsed.data;
 
 		try {
 			await auth.api.signUpEmail({
 				body: {
 					email,
 					password,
-					name,
-					callbackURL: '/auth/verification-success'
+					name
 				}
 			});
 		} catch (error) {
