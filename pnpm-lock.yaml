@@ -10,13 +10,16 @@ importers:
     dependencies:
       '@anthropic-ai/claude-agent-sdk':
         specifier: ^0.2.72
-        version: 0.2.72(zod@4.3.6)
+        version: 0.2.74(zod@4.3.6)
       '@linear/sdk':
         specifier: ^77.0.0
         version: 77.0.0(graphql@16.13.1)
       smol-toml:
         specifier: ^1.6.0
         version: 1.6.0
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
     devDependencies:
       '@better-auth/cli':
         specifier: ~1.4.21
@@ -123,8 +126,8 @@ importers:
 
 packages:
 
-  '@anthropic-ai/claude-agent-sdk@0.2.72':
-    resolution: {integrity: sha512-GR3QaLRCoWO5DkRknaaCH6zzmUNZ3E6VckEKNE7EO5R7qDBexQe9tDKag257pji2NenTrnBDMxznoZrhNCRTzA==}
+  '@anthropic-ai/claude-agent-sdk@0.2.74':
+    resolution: {integrity: sha512-S/SFSSbZHPL1HiQxAqCCxU3iHuE5nM+ir0OK1n0bZ+9hlVUH7OOn88AsV9s54E0c1kvH9YF4/foWH8J9kICsBw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: ^4.0.0
@@ -3171,7 +3174,7 @@ packages:
 
 snapshots:
 
-  '@anthropic-ai/claude-agent-sdk@0.2.72(zod@4.3.6)':
+  '@anthropic-ai/claude-agent-sdk@0.2.74(zod@4.3.6)':
     dependencies:
       zod: 4.3.6
     optionalDependencies:
