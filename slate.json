@@ -1,8 +1,8 @@
 {
-  "$schema": "https://randomlabs.ai/config.json",
-  "permission": {
-    "*": "allow",
-    "bash": "ask",
-    "edit": "ask"
-  }
+	"$schema": "https://randomlabs.ai/config.json",
+	"permission": {
+		"*": "allow",
+		"bash": "ask",
+		"edit": "ask"
+	}
 }
