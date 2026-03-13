@@ -31,12 +31,12 @@
 				</p>
 
 				{#if data.linearError}
-					<div class="alert alert-error mt-2">
+					<div class="mt-2 alert alert-error">
 						<span>{data.linearError}</span>
 					</div>
 				{/if}
 
-				<a href="/api/linear/connect" class="btn btn-primary mt-4 w-full">Koble til Linear</a>
+				<a href="/api/linear/connect" class="btn mt-4 w-full btn-primary">Koble til Linear</a>
 			{:else if !hasProjects}
 				<!-- Step 2: Create Project -->
 				<h2 class="card-title justify-center text-2xl">Opprett prosjekt</h2>
@@ -45,7 +45,7 @@
 				</p>
 
 				{#if form && 'error' in form}
-					<div class="alert alert-error mt-2">
+					<div class="mt-2 alert alert-error">
 						<span>{form.error}</span>
 					</div>
 				{/if}
@@ -68,7 +68,7 @@
 							type="text"
 							name="name"
 							bind:value={projectName}
-							class="input input-bordered w-full"
+							class="input-bordered input w-full"
 							placeholder="Mitt prosjekt"
 							required
 						/>
@@ -80,7 +80,7 @@
 							<select
 								name="linearTeamId"
 								bind:value={selectedTeamId}
-								class="select select-bordered w-full"
+								class="select-bordered select w-full"
 							>
 								<option value="">Velg team...</option>
 								{#each data.linearTeams as team (team.id)}
@@ -124,7 +124,7 @@
 							type="password"
 							name="aiApiKey"
 							bind:value={apiKey}
-							class="input input-bordered w-full"
+							class="input-bordered input w-full"
 							placeholder={selectedProvider === 'anthropic' ? 'sk-ant-...' : 'sk-...'}
 							required
 						/>
@@ -132,8 +132,8 @@
 
 					{#if selectedProvider === 'anthropic'}
 						<p class="text-xs text-base-content/50">
-							Bruk <kbd class="kbd kbd-xs">claude setup-token</kbd> for å generere en token med
-							Max- eller Pro-abonnement, eller bruk en Anthropic API-nøkkel.
+							Bruk <kbd class="kbd kbd-xs">claude setup-token</kbd> for å generere en token med Max- eller
+							Pro-abonnement, eller bruk en Anthropic API-nøkkel.
 						</p>
 					{/if}
 
@@ -143,7 +143,7 @@
 							type="text"
 							name="githubRepo"
 							bind:value={githubRepo}
-							class="input input-bordered w-full"
+							class="input-bordered input w-full"
 							placeholder="owner/repo"
 						/>
 						<p class="mt-1 text-xs text-base-content/50">
@@ -153,11 +153,11 @@
 
 					<button
 						type="submit"
-						class="btn btn-primary w-full"
+						class="btn w-full btn-primary"
 						disabled={saving || !projectName.trim() || !apiKey.trim()}
 					>
 						{#if saving}
-							<span class="loading loading-spinner loading-sm"></span>
+							<span class="loading loading-sm loading-spinner"></span>
 						{/if}
 						Opprett prosjekt
 					</button>
@@ -167,7 +167,7 @@
 				<h2 class="card-title justify-center text-2xl">Oppsett fullført</h2>
 
 				{#if form && 'success' in form}
-					<div class="alert alert-success mt-2">
+					<div class="mt-2 alert alert-success">
 						<span>Prosjekt opprettet!</span>
 					</div>
 				{/if}
@@ -179,14 +179,14 @@
 							<li class="flex items-center justify-between rounded-lg bg-base-200 p-3">
 								<span class="font-medium">{proj.name}</span>
 								{#if proj.githubRepo}
-									<span class="badge badge-neutral text-xs">{proj.githubRepo}</span>
+									<span class="badge text-xs badge-neutral">{proj.githubRepo}</span>
 								{/if}
 							</li>
 						{/each}
 					</ul>
 				</div>
 
-				<a href="/" class="btn btn-primary mt-4 w-full">Gå til dashboardet</a>
+				<a href="/" class="btn mt-4 w-full btn-primary">Gå til dashboardet</a>
 			{/if}
 		</div>
 	</div>
