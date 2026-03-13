@@ -1,0 +1,39 @@
+# ~/.snailmountain/config.toml
+
+[account]
+linear_agent_user_id = "usr_abc123"       # Linear user ID the agent is assigned to
+
+[server]
+port = 3456
+host = "127.0.0.1"
+
+[concurrency]
+max_parallel = 2
+queue_strategy = "fifo"
+
+[notifications.slack]
+webhook_url = "https://hooks.slack.com/services/..."
+notify_on = ["error", "pr_created", "needs_input"]
+
+[repos.my-backend]
+path = "/home/agent/repos/my-backend"
+base_branch = "main"
+worktree_dir = "/home/agent/worktrees/my-backend"
+setup_script = "agent-setup.sh"
+linear_team_id = "TEAM_1"
+default_model = "sonnet"
+default_max_budget_usd = 5.0
+
+[repos.my-backend.labels.Bug]
+mode = "debugger"
+model = "sonnet"
+tools = ["Read(**)", "Grep", "Glob", "Bash(cargo test:*)"]
+max_budget_usd = 3.0
+extra_prompt = "Start by reproducing the bug. Run relevant tests first."
+
+[repos.my-backend.labels.Feature]
+mode = "builder"
+model = "sonnet"
+tools = ["Read(**)", "Edit(**)", "Bash(cargo:*)", "Bash(git:*)"]
+max_budget_usd = 8.0
+extra_prompt = "Implement with tests. Follow existing patterns in the codebase."

@@ -3,6 +3,7 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
+	"packageManager": "pnpm@10.7.1",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -15,10 +16,12 @@
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
-		"db:push": "drizzle-kit push",
+		"db:push": "drizzle-kit push --force",
+		"db:reset": "rm -f local.db && drizzle-kit push --force",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
 		"db:studio": "drizzle-kit studio",
+		"db:seed": "npx tsx --env-file=.env src/lib/server/db/seed.ts",
 		"auth:schema": "better-auth generate --config src/lib/server/auth.ts --output src/lib/server/db/auth.schema.ts --yes"
 	},
 	"devDependencies": {
@@ -63,6 +66,9 @@
 		]
 	},
 	"dependencies": {
+		"@anthropic-ai/claude-agent-sdk": "^0.2.72",
+		"@linear/sdk": "^77.0.0",
+		"smol-toml": "^1.6.0",
 		"zod": "^4.3.6"
 	}
 }

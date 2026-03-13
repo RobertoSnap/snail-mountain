@@ -4,20 +4,20 @@
 
 **Snail Mountain** is a SvelteKit 5 web application scaffolded with a full-stack TypeScript setup targeting Node.js server deployment. It includes authentication (Better Auth), a SQLite database (Drizzle ORM + LibSQL), Tailwind CSS v4 styling, and a comprehensive testing stack (Vitest + Playwright).
 
-| Aspect | Technology |
-|--------|-----------|
-| Framework | SvelteKit 2 (Svelte 5) |
-| Language | TypeScript (strict mode) |
-| Package Manager | pnpm |
-| Runtime Adapter | @sveltejs/adapter-node |
-| Database | SQLite via LibSQL + Drizzle ORM |
-| Authentication | better-auth (email/password) |
-| Styling | Tailwind CSS v4 + forms/typography plugins |
-| Unit/Component Tests | Vitest (node + browser via Playwright) |
-| E2E Tests | Playwright |
-| Linting | ESLint (TS + Svelte + Prettier compat) |
-| Formatting | Prettier (svelte + tailwind plugins) |
-| Build Tool | Vite 7 |
+| Aspect               | Technology                                 |
+| -------------------- | ------------------------------------------ |
+| Framework            | SvelteKit 2 (Svelte 5)                     |
+| Language             | TypeScript (strict mode)                   |
+| Package Manager      | pnpm                                       |
+| Runtime Adapter      | @sveltejs/adapter-node                     |
+| Database             | SQLite via LibSQL + Drizzle ORM            |
+| Authentication       | better-auth (email/password)               |
+| Styling              | Tailwind CSS v4 + forms/typography plugins |
+| Unit/Component Tests | Vitest (node + browser via Playwright)     |
+| E2E Tests            | Playwright                                 |
+| Linting              | ESLint (TS + Svelte + Prettier compat)     |
+| Formatting           | Prettier (svelte + tailwind plugins)       |
+| Build Tool           | Vite 7                                     |
 
 ---
 
@@ -147,11 +147,11 @@ Authentication is managed entirely server-side using **better-auth**:
 
 The project uses a **dual test runner** setup:
 
-| Layer | Runner | Environment | Pattern |
-|-------|--------|-------------|---------|
-| Unit tests | Vitest | Node.js | `src/**/*.{test,spec}.{js,ts}` (excluding `.svelte.*`) |
-| Component tests | Vitest + Playwright | Browser (Chromium) | `src/**/*.svelte.{test,spec}.{js,ts}` |
-| E2E tests | Playwright | Full app (build + preview) | `e2e/**/*.test.ts` |
+| Layer           | Runner              | Environment                | Pattern                                                |
+| --------------- | ------------------- | -------------------------- | ------------------------------------------------------ |
+| Unit tests      | Vitest              | Node.js                    | `src/**/*.{test,spec}.{js,ts}` (excluding `.svelte.*`) |
+| Component tests | Vitest + Playwright | Browser (Chromium)         | `src/**/*.svelte.{test,spec}.{js,ts}`                  |
+| E2E tests       | Playwright          | Full app (build + preview) | `e2e/**/*.test.ts`                                     |
 
 - **Assertion requirement**: `expect.requireAssertions` is enabled globally.
 - **Server tests excluded from browser**: `src/lib/server/**` is excluded from browser test project.
@@ -160,42 +160,42 @@ The project uses a **dual test runner** setup:
 
 Reusable Svelte 5 components in `src/lib/components/`:
 
-| Component | Purpose |
-|-----------|---------|
-| `Input.svelte` | Form input with label, consistent styling, and rest-prop spreading |
-| `Button.svelte` | Button with `primary`/`secondary` variants, snippet children |
-| `Nav.svelte` | Global navigation bar with active-link highlighting |
+| Component       | Purpose                                                            |
+| --------------- | ------------------------------------------------------------------ |
+| `Input.svelte`  | Form input with label, consistent styling, and rest-prop spreading |
+| `Button.svelte` | Button with `primary`/`secondary` variants, snippet children       |
+| `Nav.svelte`    | Global navigation bar with active-link highlighting                |
 
 ---
 
 ## Environment Variables
 
-| Variable | Purpose | Required |
-|----------|---------|----------|
-| `DATABASE_URL` | SQLite database file path (e.g., `file:local.db`) | Yes |
-| `ORIGIN` | Application origin URL (for auth callbacks) | Yes |
-| `BETTER_AUTH_SECRET` | Auth encryption secret (32+ chars, high entropy) | Yes |
+| Variable             | Purpose                                           | Required |
+| -------------------- | ------------------------------------------------- | -------- |
+| `DATABASE_URL`       | SQLite database file path (e.g., `file:local.db`) | Yes      |
+| `ORIGIN`             | Application origin URL (for auth callbacks)       | Yes      |
+| `BETTER_AUTH_SECRET` | Auth encryption secret (32+ chars, high entropy)  | Yes      |
 
 ---
 
 ## NPM Scripts
 
-| Script | Description |
-|--------|-------------|
-| `dev` | Start Vite dev server |
-| `build` | Production build |
-| `preview` | Preview production build |
-| `check` | SvelteKit sync + svelte-check |
-| `lint` | Prettier check + ESLint |
-| `format` | Prettier write |
-| `test` | Run unit tests + E2E tests |
-| `test:unit` | Run Vitest |
-| `test:e2e` | Run Playwright tests |
-| `db:push` | Push schema to database |
-| `db:generate` | Generate migration files |
-| `db:migrate` | Run migrations |
-| `db:studio` | Open Drizzle Studio |
-| `auth:schema` | Generate Better Auth schema |
+| Script        | Description                   |
+| ------------- | ----------------------------- |
+| `dev`         | Start Vite dev server         |
+| `build`       | Production build              |
+| `preview`     | Preview production build      |
+| `check`       | SvelteKit sync + svelte-check |
+| `lint`        | Prettier check + ESLint       |
+| `format`      | Prettier write                |
+| `test`        | Run unit tests + E2E tests    |
+| `test:unit`   | Run Vitest                    |
+| `test:e2e`    | Run Playwright tests          |
+| `db:push`     | Push schema to database       |
+| `db:generate` | Generate migration files      |
+| `db:migrate`  | Run migrations                |
+| `db:studio`   | Open Drizzle Studio           |
+| `auth:schema` | Generate Better Auth schema   |
 
 ---
 

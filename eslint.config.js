@@ -34,6 +34,10 @@ export default defineConfig(
 				parser: ts.parser,
 				svelteConfig
 			}
+		},
+		rules: {
+			// Disabled: eslint-plugin-svelte crashes on type attributes and component props
+			'svelte/no-navigation-without-resolve': 'off'
 		}
 	}
 );

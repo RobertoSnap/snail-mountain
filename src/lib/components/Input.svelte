@@ -9,7 +9,15 @@
 		[key: string]: unknown;
 	}
 
-	let { type = 'text', name, label, value = '', placeholder, required = false, ...rest }: Props = $props();
+	let {
+		type = 'text',
+		name,
+		label,
+		value = '',
+		placeholder,
+		required = false,
+		...rest
+	}: Props = $props();
 </script>
 
 <label>
