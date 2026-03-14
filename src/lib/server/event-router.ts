@@ -194,7 +194,9 @@ async function routeCommentEvent(
 	}
 
 	const issue = data.issue as Record<string, unknown> | undefined;
-	const issueId = (data.issueId ?? issue?.id) as string | undefined;
+	const issueId = ((issue?.identifier as string | undefined) ??
+		data.issueId ??
+		issue?.id) as string | undefined;
 	if (!issueId) {
 		return { ok: true, ignored: true, reason: 'no issue ID in comment' };
 	}
